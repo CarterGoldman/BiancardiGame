@@ -1,12 +1,15 @@
 
 public class Question 
 {
-	private int pointAccumulator;
+	private int point;
+	private int pointTotal;
 	private static String question;
 	private static int questionNumber;
 	public Question()
 	{
-		pointAccumulator = 0;
+		
+		point = 0;
+		pointTotal = 0;
 		questionNumber = 1;
 		question = "";
 	}
@@ -47,10 +50,10 @@ public class Question
 				question = "How would you classify your dance moves?";
 				break;
 			case 11:
-				question = "";
+				question = "Where would you like to live if you could choose your ideal place?";
 				break;
 			case 12:
-				question  = "";
+				question  = "What's your favorite SpongeBob quote?";
 				break;
 			case 13:
 				question = "";
@@ -68,9 +71,18 @@ public class Question
 	
 	public int assignPointTotals(int answer)	//assign point totals for each answer
 	{
-		if(questionNumber == 1)
+		switch(questionNumber)
 		{
-			if(answer == 3)
+			case 1:
+			{
+				if(answer == 1)
+					point = 4;
+				else if(answer == 2)
+					point = -1;
+				else if(answer == 3)
+					point = 2;
+				else
+					
 				
 		}
 	}
