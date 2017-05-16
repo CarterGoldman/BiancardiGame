@@ -9,9 +9,9 @@ public class Contestant
 {
 	private int points;
 	
-	public Contestant(int p, String nam, int h,int w, int iq, double gpa)
+	public Contestant()
 	{
-		points = p;
+		points = 0;
 	}
 	
 	public void addPoints(int amount)
