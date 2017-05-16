@@ -9,7 +9,6 @@ import javax.swing.SwingConstants;
 
 public class GameFrame extends JFrame
 {
-
 	private JPanel contentPane;
 
 	/**
