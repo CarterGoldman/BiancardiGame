@@ -1,4 +1,5 @@
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 /*
  * Marcus Biancardi Alex
@@ -6,8 +7,12 @@ import javax.swing.JFrame;
  */
 public class GameBoard extends JFrame
 {
+	JPanel gameBoard;
+	
 	public GameBoard()
 	{
+		gameBoard = new JPanel();
+		
 		// Sets the size of the JFrame
 		this.setSize(1150, 650);
 		
