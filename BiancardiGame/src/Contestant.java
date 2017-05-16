@@ -22,4 +22,19 @@ public class Contestant
 		IQ = iq;
 		GPA = gpa;
 	}
+	
+	public Contestant()
+	{
+		points = 0;
+		name = "";
+		height = 0;
+		weight = 0;
+		IQ = 0;
+		GPA = 0;
+	}
+	
+	public void addPoints(int p)
+	{
+		points += p;
+	}
 }
