@@ -1,6 +1,5 @@
 /*
- * Dylan & Jacob
- * Jacob & Dylan
+ * Dylan Jacob
  * 
  */
 public class Sean extends Contestant
