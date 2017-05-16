@@ -11,7 +11,6 @@ import javax.swing.JButton;
 
 public class GameFrame extends JFrame
 {
-
 	private JPanel contentPane;
 
 	/**
