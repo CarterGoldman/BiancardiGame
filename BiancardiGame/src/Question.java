@@ -53,7 +53,7 @@ public class Question
 				question = "Where would you like to live if you could choose your ideal place?";
 				break;
 			case 12:
-				question  = "What's your favorite SpongeBob quote?";
+				question = "What's your favorite SpongeBob quote?";
 				break;
 			case 13:
 				question = "";

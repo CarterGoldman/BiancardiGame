@@ -8,8 +8,11 @@ import javax.swing.JOptionPane;
 public class Contestant
 {
 	private int points;
+	private String name;
+	private String answer;
+	private String question;
 	
-	public Contestant()
+	public Contestant(String name)
 	{
 		points = 0;
 	}
@@ -19,23 +22,34 @@ public class Contestant
 		points += amount;
 	}
 	
-	public void getQuestion()
+	public int getPoints()
 	{
-		Question question = new Question();
-		String quest = question.generateQuestion();
-		
+		return points;
 	}
 	
-	public void askQuestion()
+	public String getName()
 	{
-		//output question
-		
-		//assign answer to ans
-		String ans;
+		return name;
 	}
 	
-	public void decidePoints(String ans)
+	public String getAnswer()
 	{
-		//determine points earned from answer
-	}	
+		return answer;
+	}
+	
+	public void setAnswer(String ans)
+	{
+		answer = ans;
+	}
+	
+	public String getQuestion()
+	{
+		return question;
+	}
+	
+	public void setQuestion()
+	{
+		Question quest = new Question();
+		question = quest.generateQuestion();
+	}
 }
