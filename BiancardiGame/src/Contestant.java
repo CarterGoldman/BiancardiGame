@@ -15,6 +15,7 @@ public class Contestant
 	public Contestant(String name)
 	{
 		points = 0;
+		this.name = name;
 	}
 	
 	public void addPoints(int amount)
