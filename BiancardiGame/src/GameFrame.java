@@ -153,8 +153,8 @@ public class GameFrame extends JFrame
 		biancardiPanel.add(lblBiancardiStuff);
 		
 		JLabel biancardiPicture = new JLabel("");
-		biancardiPicture.setIcon(new ImageIcon(GameFrame.class.getResource("/pictures/Michael-Biancardi.JPG")));
-		biancardiPicture.setBounds(22, 237, 150, 150);
+		biancardiPicture.setIcon(new ImageIcon(GameFrame.class.getResource("/pictures/Biancardi-full.jpg")));
+		biancardiPicture.setBounds(22, 36, 150, 539);
 		biancardiPanel.add(biancardiPicture);
 	}
 }
