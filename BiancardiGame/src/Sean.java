@@ -5,9 +5,9 @@
 public class Sean extends Contestant
 {
 
-	public Sean(int p, String nam, int h, int w, int iq, double gpa) 
+	public Sean() 
 	{
-		super(p, nam, h, w, iq, gpa);
+		super();
 	}
 	
 }
