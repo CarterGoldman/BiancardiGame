@@ -25,7 +25,7 @@ public class GameFrame extends JFrame
 {
 	private JPanel contentPane;
 	private JLabel iwemaLabel;
-
+	
 	/**
 	 * Launch the application.
 	 */
@@ -67,26 +67,26 @@ public class GameFrame extends JFrame
 		contentPane.add(contestantPanel);
 		contestantPanel.setLayout(null);
 		
-		JLabel lblIwemaScore = new JLabel("iwema: score");
+		JLabel lblIwemaScore = new JLabel("Iwema: score");
 		lblIwemaScore.setHorizontalAlignment(SwingConstants.CENTER);
 		lblIwemaScore.setBounds(8, 201, 179, 28);
 		lblIwemaScore.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
 		contestantPanel.add(lblIwemaScore);
 		
-		JLabel lblBegleyScore = new JLabel("begley: score");
+		JLabel lblBegleyScore = new JLabel("Begley: score");
 		lblBegleyScore.setHorizontalAlignment(SwingConstants.CENTER);
 		lblBegleyScore.setBounds(8, 401, 179, 28);
 		lblBegleyScore.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
 		contestantPanel.add(lblBegleyScore);
 		
-		JLabel lblPlayerScore = new JLabel("player: score");
+		JLabel lblPlayerScore = new JLabel("Player: score");
 		lblPlayerScore.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPlayerScore.setBounds(8, 11, 179, 28);
 		lblPlayerScore.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
 		contestantPanel.add(lblPlayerScore);
 		
 		JLabel iwemaPicture = new JLabel("");
-		iwemaPicture.setIcon(new ImageIcon(GameFrame.class.getResource("/pictures/Todd-Iwema.gif")));
+		iwemaPicture.setIcon(new ImageIcon(GameFrame.class.getResource("/pictures/Todd-Iwema.jpg")));
 		iwemaPicture.setBounds(22, 240, 150, 150);
 		contestantPanel.add(iwemaPicture);
 		
