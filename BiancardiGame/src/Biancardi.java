@@ -7,6 +7,7 @@ public class Biancardi
 {
 	private int IQ;
 	private double GPA;
+	private String[] comments = {"Heck", "My name is Biancardi and I'm ready to frickin party", "My GPA is " + GPA, " so I'm smarter than you", "I have a " + IQ + " IQ so I am better than you", "My" + GPA + " GPA is okay"}
 	
 	public Biancardi()
 	{
@@ -16,6 +17,11 @@ public class Biancardi
 	
 	public String comment()
 	{
-		return "test";
+		return comments[(int)Math.random()*comments.length];
+	}
+	
+	public void bianparty()
+	{
+		
 	}
 }
