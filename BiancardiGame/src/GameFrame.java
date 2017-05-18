@@ -15,6 +15,8 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Window.Type;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.Toolkit;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.EtchedBorder;
@@ -25,6 +27,11 @@ public class GameFrame extends JFrame
 {
 	private JPanel contentPane;
 	private JLabel iwemaLabel;
+	
+	//Declare contestant variables
+	private Todd todd;
+	private Sean sean;
+	private Self player;
 	
 	/**
 	 * Launch the application.
@@ -107,18 +114,18 @@ public class GameFrame extends JFrame
 		contentPane.add(gamePanel);
 		gamePanel.setLayout(null);
 		
-		JLabel questionNumLabel = new JLabel("insert question num here");
+		JLabel questionNumLabel = new JLabel("");
 		questionNumLabel.setFont(new Font("Comic Sans MS", Font.PLAIN, 25));
 		questionNumLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		questionNumLabel.setBounds(0, 11, 736, 52);
 		gamePanel.add(questionNumLabel);
 		
-		JLabel lblInsertQuestionHere = new JLabel("insert question here");
-		lblInsertQuestionHere.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
-		lblInsertQuestionHere.setHorizontalAlignment(SwingConstants.CENTER);
-		lblInsertQuestionHere.setVerticalAlignment(SwingConstants.TOP);
-		lblInsertQuestionHere.setBounds(5, 101, 726, 111);
-		gamePanel.add(lblInsertQuestionHere);
+		JLabel questionLabel = new JLabel("click next question to start");
+		questionLabel.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
+		questionLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		questionLabel.setVerticalAlignment(SwingConstants.TOP);
+		questionLabel.setBounds(5, 101, 726, 111);
+		gamePanel.add(questionLabel);
 		
 		JButton buttonA = new JButton("answer A");
 		buttonA.setBounds(98, 325, 266, 127);
@@ -137,8 +144,12 @@ public class GameFrame extends JFrame
 		gamePanel.add(buttonD);
 		
 		JPanel picturePanel = new JPanel();
-		picturePanel.setBounds(318, 201, 100, 100);
+		picturePanel.setBounds(317, 152, 100, 100);
 		gamePanel.add(picturePanel);
+		
+		JButton nextQuestionButton = new JButton("Next Question");
+		nextQuestionButton.setBounds(298, 263, 141, 41);
+		gamePanel.add(nextQuestionButton);
 		
 		JPanel biancardiPanel = new JPanel();
 		biancardiPanel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
@@ -150,5 +161,27 @@ public class GameFrame extends JFrame
 		biancardiPicture.setIcon(new ImageIcon(GameFrame.class.getResource("/pictures/Biancardi-full-small.png")));
 		biancardiPicture.setBounds(10, 11, 175, 580);
 		biancardiPanel.add(biancardiPicture);
+		
+		ActionListener action = new ActionListener()
+		{
+			@Override
+			public void actionPerformed(ActionEvent event) 
+			{
+				if (event.getSource().equals(nextQuestionButton))
+				{
+					if (Question.getQuestionNumber() < 41)
+					{
+						questionLabel.setText(Question.generateQuestion());
+						questionNumLabel.setText(Integer.toString(Question.getQuestionNumber()));
+					}
+					else
+					{
+						//TODO: add end of game stuff
+					}
+				}
+			}
+		};
+		
+		nextQuestionButton.addActionListener(action);
 	}
 }

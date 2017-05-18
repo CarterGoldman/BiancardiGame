@@ -3,7 +3,7 @@ public class Question
 {
 	private static int point;
 	private static String question;
-	private static int questionNumber;
+	private static int questionNumber = 0;
 	
 	public Question()
 	{
@@ -14,6 +14,8 @@ public class Question
 	
 	public static String generateQuestion()
 	{
+		questionNumber++;	//increment question number for next call
+		
 		//get each question
 		switch(questionNumber)
 		{
@@ -141,7 +143,6 @@ public class Question
 				question = "what's your favorite food?";
 				break;
 		}	//end switch
-		questionNumber++;	//increment question number for next call
 		return question;
 	}
 	
@@ -1217,6 +1218,7 @@ a
 		}	//end switch
 		return point;
 	}
+	
 	public static int getQuestionNumber()
 	{
 		return questionNumber;
