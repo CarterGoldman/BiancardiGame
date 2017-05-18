@@ -86,11 +86,11 @@ public class GameFrame extends JFrame
 		lblBegleyScore.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
 		contestantPanel.add(lblBegleyScore);
 		
-		JLabel lblPlayerScore = new JLabel("Player: score");
-		lblPlayerScore.setHorizontalAlignment(SwingConstants.CENTER);
-		lblPlayerScore.setBounds(8, 11, 179, 28);
-		lblPlayerScore.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
-		contestantPanel.add(lblPlayerScore);
+		JLabel playerScoreLabel = new JLabel("Player: score");
+		playerScoreLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		playerScoreLabel.setBounds(8, 11, 179, 28);
+		playerScoreLabel.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
+		contestantPanel.add(playerScoreLabel);
 		
 		JLabel iwemaPicture = new JLabel("");
 		iwemaPicture.setIcon(new ImageIcon(GameFrame.class.getResource("/pictures/Todd-Iwema.jpg")));
@@ -162,6 +162,8 @@ public class GameFrame extends JFrame
 		biancardiPicture.setBounds(10, 11, 175, 580);
 		biancardiPanel.add(biancardiPicture);
 		
+		player = new Self("Player");
+		
 		ActionListener action = new ActionListener()
 		{
 			@Override
@@ -173,15 +175,38 @@ public class GameFrame extends JFrame
 					{
 						questionLabel.setText(Question.generateQuestion());
 						questionNumLabel.setText(Integer.toString(Question.getQuestionNumber()));
+						return;
 					}
 					else
 					{
 						//TODO: add end of game stuff
 					}
+				}				
+				else if (event.getSource().equals(buttonA))
+				{
+					player.addPoints(Question.assignpoints('a'));
 				}
+				else if (event.getSource().equals(buttonB))
+				{
+					player.addPoints(Question.assignpoints('b'));
+				}
+				else if (event.getSource().equals(buttonC))
+				{
+					player.addPoints(Question.assignpoints('c'));
+				}
+				else if (event.getSource().equals(buttonD))
+				{
+					player.addPoints(Question.assignpoints('d'));
+				}
+				
+				playerScoreLabel.setText(Integer.toString(player.getPoints()));
 			}
 		};
 		
 		nextQuestionButton.addActionListener(action);
+		buttonA.addActionListener(action);
+		buttonB.addActionListener(action);
+		buttonC.addActionListener(action);
+		buttonD.addActionListener(action);
 	}
 }
