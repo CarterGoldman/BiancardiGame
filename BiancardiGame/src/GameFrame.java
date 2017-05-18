@@ -146,15 +146,9 @@ public class GameFrame extends JFrame
 		contentPane.add(biancardiPanel);
 		biancardiPanel.setLayout(null);
 		
-		JLabel lblBiancardiStuff = new JLabel("biancardi stuff");
-		lblBiancardiStuff.setHorizontalAlignment(SwingConstants.CENTER);
-		lblBiancardiStuff.setBounds(21, 201, 153, 25);
-		lblBiancardiStuff.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
-		biancardiPanel.add(lblBiancardiStuff);
-		
-		JLabel biancardiPicture = new JLabel("");
-		biancardiPicture.setIcon(new ImageIcon(GameFrame.class.getResource("/pictures/Biancardi-full.jpg")));
-		biancardiPicture.setBounds(22, 36, 150, 539);
+		JLabel biancardiPicture = new JLabel();
+		biancardiPicture.setIcon(new ImageIcon(GameFrame.class.getResource("/pictures/Biancardi-full-small.png")));
+		biancardiPicture.setBounds(10, 11, 175, 580);
 		biancardiPanel.add(biancardiPicture);
 	}
 }
