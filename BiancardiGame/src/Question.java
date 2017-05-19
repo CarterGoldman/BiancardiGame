@@ -156,26 +156,26 @@ public class Question
 				{
 					case 'a':
 					{
-						point += ;
+						point = 1;
 					}
 					case 'b':
 					{
-						point += ;
+						point = 1;
 
 					}
 					case 'c':
 					{
-						point += ;
+						point = 1;
 	
 					}
 					case 'd':
 					{
-						point += ;
+						point = 1;
 
 					}
 				}	//end switch
 			}
-			case 2:
+			/*/case 2:
 			{
 				switch(answer)
 				{
@@ -1214,7 +1214,7 @@ public class Question
 a
 					}
 				}	//end switch
-			}
+			}/*/
 		}	//end switch
 		return point;
 	}

@@ -15,17 +15,23 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Window.Type;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.Toolkit;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.MatteBorder;
 import java.awt.Color;
-import javax.swing.border.LineBorder;
 
 public class GameFrame extends JFrame
 {
 	private JPanel contentPane;
 	private JLabel iwemaLabel;
+	
+	//Declare contestant variables
+	private Todd todd;
+	private Sean sean;
+	private Self player;
 	
 	/**
 	 * Launch the application.
@@ -56,46 +62,35 @@ public class GameFrame extends JFrame
 		setIconImage(Toolkit.getDefaultToolkit().getImage(GameFrame.class.getResource("/pictures/Michael-Biancardi.JPG")));
 		setTitle("Biancardi Dating Sim");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1145, 647);
+		setBounds(100, 100, 1150, 650);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JPanel contestantPanel = new JPanel();
-		contestantPanel.setOpaque(false);
-		contestantPanel.setBorder(null);
+		contestantPanel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		contestantPanel.setBounds(0, 5, 195, 601);
 		contentPane.add(contestantPanel);
 		contestantPanel.setLayout(null);
 		
-
-		JLabel lblIwemaScore = new JLabel("iwema: score");
-		lblIwemaScore.setForeground(Color.WHITE);
-
+		JLabel lblIwemaScore = new JLabel("Iwema: score");
 		lblIwemaScore.setHorizontalAlignment(SwingConstants.CENTER);
 		lblIwemaScore.setBounds(8, 201, 179, 28);
 		lblIwemaScore.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
 		contestantPanel.add(lblIwemaScore);
 		
-
-		JLabel lblBegleyScore = new JLabel("begley: score");
-		lblBegleyScore.setForeground(Color.WHITE);
-
+		JLabel lblBegleyScore = new JLabel("Begley: score");
 		lblBegleyScore.setHorizontalAlignment(SwingConstants.CENTER);
 		lblBegleyScore.setBounds(8, 401, 179, 28);
 		lblBegleyScore.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
 		contestantPanel.add(lblBegleyScore);
 		
-
-		JLabel lblPlayerScore = new JLabel("player: score");
-		lblPlayerScore.setForeground(Color.WHITE);
-
-
-		lblPlayerScore.setHorizontalAlignment(SwingConstants.CENTER);
-		lblPlayerScore.setBounds(8, 11, 179, 28);
-		lblPlayerScore.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
-		contestantPanel.add(lblPlayerScore);
+		JLabel playerScoreLabel = new JLabel("Player: score");
+		playerScoreLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		playerScoreLabel.setBounds(8, 11, 179, 28);
+		playerScoreLabel.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
+		contestantPanel.add(playerScoreLabel);
 		
 		JLabel iwemaPicture = new JLabel("");
 		iwemaPicture.setIcon(new ImageIcon(GameFrame.class.getResource("/pictures/Todd-Iwema.jpg")));
@@ -114,87 +109,133 @@ public class GameFrame extends JFrame
 		
 		
 		JPanel gamePanel = new JPanel();
-		gamePanel.setOpaque(false);
-		gamePanel.setBorder(null);
+		gamePanel.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		gamePanel.setBounds(199, 5, 736, 601);
 		contentPane.add(gamePanel);
 		gamePanel.setLayout(null);
 		
-		JLabel questionNumLabel = new JLabel("insert question num here");
-		questionNumLabel.setForeground(Color.WHITE);
+		JLabel questionNumLabel = new JLabel("");
 		questionNumLabel.setFont(new Font("Comic Sans MS", Font.PLAIN, 25));
 		questionNumLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		questionNumLabel.setBounds(5, 42, 736, 52);
+		questionNumLabel.setBounds(0, 11, 736, 52);
 		gamePanel.add(questionNumLabel);
 		
-		JLabel lblInsertQuestionHere = new JLabel("insert question here");
-		lblInsertQuestionHere.setForeground(Color.WHITE);
-		lblInsertQuestionHere.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
-		lblInsertQuestionHere.setHorizontalAlignment(SwingConstants.CENTER);
-		lblInsertQuestionHere.setVerticalAlignment(SwingConstants.TOP);
-		lblInsertQuestionHere.setBounds(5, 119, 726, 93);
-		gamePanel.add(lblInsertQuestionHere);
+		JLabel questionLabel = new JLabel("click next question to start");
+		questionLabel.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
+		questionLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		questionLabel.setVerticalAlignment(SwingConstants.TOP);
+		questionLabel.setBounds(5, 101, 726, 111);
+		gamePanel.add(questionLabel);
 		
 		JButton buttonA = new JButton("answer A");
-		buttonA.setFont(new Font("Comic Sans MS", Font.PLAIN, 12));
-		buttonA.setForeground(Color.WHITE);
-		buttonA.setBorder(null);
-		buttonA.setOpaque(false);
-		buttonA.setBounds(81, 392, 199, 77);
+		buttonA.setEnabled(false);
+		buttonA.setBounds(98, 325, 266, 127);
 		gamePanel.add(buttonA);
 		
 		JButton buttonC = new JButton("answer C");
-		buttonC.setFont(new Font("Comic Sans MS", Font.PLAIN, 12));
-		buttonC.setForeground(Color.WHITE);
-		buttonC.setBorder(null);
-		buttonC.setOpaque(false);
-		buttonC.setBounds(81, 501, 199, 77);
+		buttonC.setEnabled(false);
+		buttonC.setBounds(98, 463, 266, 127);
 		gamePanel.add(buttonC);
 		
 		JButton buttonB = new JButton("answer B");
-		buttonB.setFont(new Font("Comic Sans MS", Font.PLAIN, 12));
-		buttonB.setForeground(Color.WHITE);
-		buttonB.setBorder(null);
-		buttonB.setOpaque(false);
-		buttonB.setBounds(458, 392, 199, 77);
+		buttonB.setEnabled(false);
+		buttonB.setBounds(374, 325, 266, 127);
 		gamePanel.add(buttonB);
 		
 		JButton buttonD = new JButton("answer D");
-		buttonD.setForeground(Color.WHITE);
-		buttonD.setFont(new Font("Comic Sans MS", Font.PLAIN, 12));
-		buttonD.setBorder(null);
-		buttonD.setOpaque(false);
-		buttonD.setBounds(458, 501, 199, 77);
+		buttonD.setEnabled(false);
+		buttonD.setBounds(374, 463, 266, 127);
 		gamePanel.add(buttonD);
 		
 		JPanel picturePanel = new JPanel();
-		picturePanel.setBorder(new LineBorder(new Color(0, 204, 255), 2, true));
-		picturePanel.setOpaque(false);
-		picturePanel.setBounds(242, 223, 252, 150);
+		picturePanel.setBounds(317, 152, 100, 100);
 		gamePanel.add(picturePanel);
 		
+		JButton nextQuestionButton = new JButton("Next Question");
+		nextQuestionButton.setBounds(298, 263, 141, 41);
+		gamePanel.add(nextQuestionButton);
+		
 		JPanel biancardiPanel = new JPanel();
-		biancardiPanel.setOpaque(false);
-		biancardiPanel.setBorder(null);
+		biancardiPanel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		biancardiPanel.setBounds(940, 5, 195, 601);
 		contentPane.add(biancardiPanel);
 		biancardiPanel.setLayout(null);
 		
-		JLabel lblBiancardiStuff = new JLabel("biancardi stuff");
-		lblBiancardiStuff.setForeground(Color.WHITE);
-		lblBiancardiStuff.setHorizontalAlignment(SwingConstants.CENTER);
-		lblBiancardiStuff.setBounds(19, 11, 153, 25);
-		lblBiancardiStuff.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
-		biancardiPanel.add(lblBiancardiStuff);
-		
-		JLabel biancardiPicture = new JLabel("");
+		JLabel biancardiPicture = new JLabel();
 		biancardiPicture.setIcon(new ImageIcon(GameFrame.class.getResource("/pictures/Biancardi-full-small.png")));
-		biancardiPicture.setBounds(22, 47, 150, 554);
+		biancardiPicture.setBounds(10, 11, 175, 580);
 		biancardiPanel.add(biancardiPicture);
 		
 		JLabel backgroundPicture = new JLabel("");
 		backgroundPicture.setIcon(new ImageIcon(GameFrame.class.getResource("/pictures/bianparty_background.png")));
 		backgroundPicture.setBounds(0, 0, 1144, 623);
 		contentPane.add(backgroundPicture);
+		
+		player = new Self("Player");
+		
+		ActionListener action = new ActionListener()
+		{
+			@Override
+			public void actionPerformed(ActionEvent event) 
+			{
+				if (event.getSource().equals(nextQuestionButton))
+				{
+					if (Question.getQuestionNumber() < 41)
+					{
+						questionLabel.setText(Question.generateQuestion());
+						questionNumLabel.setText(Integer.toString(Question.getQuestionNumber()));
+						
+						buttonA.setEnabled(true);
+						buttonB.setEnabled(true);
+						buttonC.setEnabled(true);
+						buttonD.setEnabled(true);
+					}
+					else
+					{
+						//TODO: add end of game stuff
+					}
+				}				
+				else if (event.getSource().equals(buttonA))
+				{
+					player.addPoints(Question.assignpoints('a'));
+					buttonA.setEnabled(false);
+					buttonB.setEnabled(false);
+					buttonC.setEnabled(false);
+					buttonD.setEnabled(false);
+				}
+				else if (event.getSource().equals(buttonB))
+				{
+					player.addPoints(Question.assignpoints('b'));
+					buttonA.setEnabled(false);
+					buttonB.setEnabled(false);
+					buttonC.setEnabled(false);
+					buttonD.setEnabled(false);
+				}
+				else if (event.getSource().equals(buttonC))
+				{
+					player.addPoints(Question.assignpoints('c'));
+					buttonA.setEnabled(false);
+					buttonB.setEnabled(false);
+					buttonC.setEnabled(false);
+					buttonD.setEnabled(false);
+				}
+				else if (event.getSource().equals(buttonD))
+				{
+					player.addPoints(Question.assignpoints('d'));
+					buttonA.setEnabled(false);
+					buttonB.setEnabled(false);
+					buttonC.setEnabled(false);
+					buttonD.setEnabled(false);
+				}
+				
+				playerScoreLabel.setText(Integer.toString(player.getPoints()));
+			}
+		};
+		
+		nextQuestionButton.addActionListener(action);
+		buttonA.addActionListener(action);
+		buttonB.addActionListener(action);
+		buttonC.addActionListener(action);
+		buttonD.addActionListener(action);
 	}
 }
