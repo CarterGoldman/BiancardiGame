@@ -65,7 +65,7 @@ public class GameFrame extends JFrame
 		JPanel contestantPanel = new JPanel();
 		contestantPanel.setOpaque(false);
 		contestantPanel.setBorder(null);
-		contestantPanel.setBounds(0, 5, 195, 601);
+		contestantPanel.setBounds(0, 5, 195, 618);
 		contentPane.add(contestantPanel);
 		contestantPanel.setLayout(null);
 		
@@ -116,7 +116,7 @@ public class GameFrame extends JFrame
 		JPanel gamePanel = new JPanel();
 		gamePanel.setOpaque(false);
 		gamePanel.setBorder(null);
-		gamePanel.setBounds(199, 5, 736, 601);
+		gamePanel.setBounds(199, 5, 736, 618);
 		contentPane.add(gamePanel);
 		gamePanel.setLayout(null);
 		
@@ -176,7 +176,7 @@ public class GameFrame extends JFrame
 		JPanel biancardiPanel = new JPanel();
 		biancardiPanel.setOpaque(false);
 		biancardiPanel.setBorder(null);
-		biancardiPanel.setBounds(940, 5, 195, 601);
+		biancardiPanel.setBounds(940, 5, 195, 618);
 		contentPane.add(biancardiPanel);
 		biancardiPanel.setLayout(null);
 		
@@ -189,7 +189,7 @@ public class GameFrame extends JFrame
 		
 		JLabel biancardiPicture = new JLabel("");
 		biancardiPicture.setIcon(new ImageIcon(GameFrame.class.getResource("/pictures/Biancardi-full-small.png")));
-		biancardiPicture.setBounds(22, 47, 150, 554);
+		biancardiPicture.setBounds(19, 27, 175, 580);
 		biancardiPanel.add(biancardiPicture);
 		
 		JLabel backgroundPicture = new JLabel("");
