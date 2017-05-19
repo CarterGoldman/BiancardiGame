@@ -217,7 +217,7 @@ public class GameFrame extends JFrame
 				}				
 				else if (event.getSource().equals(buttonA))
 				{
-					player.addPoints(Question.assignpoints('a'));
+					player.addPoints(Question.assignPoints('a'));
 					buttonA.setEnabled(false);
 					buttonB.setEnabled(false);
 					buttonC.setEnabled(false);
@@ -225,7 +225,7 @@ public class GameFrame extends JFrame
 				}
 				else if (event.getSource().equals(buttonB))
 				{
-					player.addPoints(Question.assignpoints('b'));
+					player.addPoints(Question.assignPoints('b'));
 					buttonA.setEnabled(false);
 					buttonB.setEnabled(false);
 					buttonC.setEnabled(false);
@@ -233,7 +233,7 @@ public class GameFrame extends JFrame
 				}
 				else if (event.getSource().equals(buttonC))
 				{
-					player.addPoints(Question.assignpoints('c'));
+					player.addPoints(Question.assignPoints('c'));
 					buttonA.setEnabled(false);
 					buttonB.setEnabled(false);
 					buttonC.setEnabled(false);
@@ -241,7 +241,7 @@ public class GameFrame extends JFrame
 				}
 				else if (event.getSource().equals(buttonD))
 				{
-					player.addPoints(Question.assignpoints('d'));
+					player.addPoints(Question.assignPoints('d'));
 					buttonA.setEnabled(false);
 					buttonB.setEnabled(false);
 					buttonC.setEnabled(false);
