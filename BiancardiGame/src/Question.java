@@ -146,7 +146,7 @@ public class Question
 		return question;
 	}
 	
-	public static int assignpoints(char answer)
+	public static int assignPoints(char answer)
 	{
 		switch(questionNumber)	//sort through question  numbers and assign point totals based on answers
 		{

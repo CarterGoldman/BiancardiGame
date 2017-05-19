@@ -59,10 +59,11 @@ public class GameFrame extends JFrame
 	 */
 	public GameFrame()
 	{
+		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(GameFrame.class.getResource("/pictures/Michael-Biancardi.JPG")));
 		setTitle("Biancardi Dating Sim");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1150, 650);
+		setBounds(100, 100, 1142, 644);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -132,27 +133,35 @@ public class GameFrame extends JFrame
 		questionLabel.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
 		questionLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		questionLabel.setVerticalAlignment(SwingConstants.TOP);
-		questionLabel.setBounds(5, 101, 726, 111);
+		questionLabel.setBounds(10, 39, 726, 111);
 		gamePanel.add(questionLabel);
 		
 		JButton buttonA = new JButton("answer A");
+		buttonA.setBorder(null);
+		buttonA.setOpaque(false);
 		buttonA.setEnabled(false);
-		buttonA.setBounds(98, 325, 266, 127);
+		buttonA.setBounds(79, 394, 202, 75);
 		gamePanel.add(buttonA);
 		
 		JButton buttonC = new JButton("answer C");
+		buttonC.setBorder(null);
+		buttonC.setOpaque(false);
 		buttonC.setEnabled(false);
-		buttonC.setBounds(98, 463, 266, 127);
+		buttonC.setBounds(79, 504, 202, 75);
 		gamePanel.add(buttonC);
 		
 		JButton buttonB = new JButton("answer B");
+		buttonB.setBorder(null);
+		buttonB.setOpaque(false);
 		buttonB.setEnabled(false);
-		buttonB.setBounds(374, 325, 266, 127);
+		buttonB.setBounds(453, 394, 202, 75);
 		gamePanel.add(buttonB);
 		
 		JButton buttonD = new JButton("answer D");
+		buttonD.setBorder(null);
+		buttonD.setOpaque(false);
 		buttonD.setEnabled(false);
-		buttonD.setBounds(374, 463, 266, 127);
+		buttonD.setBounds(453, 501, 202, 83);
 		gamePanel.add(buttonD);
 		
 		JPanel picturePanel = new JPanel();
@@ -160,7 +169,7 @@ public class GameFrame extends JFrame
 		gamePanel.add(picturePanel);
 		
 		JButton nextQuestionButton = new JButton("Next Question");
-		nextQuestionButton.setBounds(298, 263, 141, 41);
+		nextQuestionButton.setBounds(297, 288, 141, 41);
 		gamePanel.add(nextQuestionButton);
 		
 		JPanel biancardiPanel = new JPanel();
