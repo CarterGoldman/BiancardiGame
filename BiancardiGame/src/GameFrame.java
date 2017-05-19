@@ -69,6 +69,7 @@ public class GameFrame extends JFrame
 		contentPane.setLayout(null);
 		
 		JPanel contestantPanel = new JPanel();
+		contestantPanel.setOpaque(false);
 		contestantPanel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		contestantPanel.setBounds(0, 5, 195, 601);
 		contentPane.add(contestantPanel);
@@ -109,18 +110,21 @@ public class GameFrame extends JFrame
 		
 		
 		JPanel gamePanel = new JPanel();
+		gamePanel.setOpaque(false);
 		gamePanel.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		gamePanel.setBounds(199, 5, 736, 601);
 		contentPane.add(gamePanel);
 		gamePanel.setLayout(null);
 		
 		JLabel questionNumLabel = new JLabel("");
+		questionNumLabel.setForeground(Color.WHITE);
 		questionNumLabel.setFont(new Font("Comic Sans MS", Font.PLAIN, 25));
 		questionNumLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		questionNumLabel.setBounds(0, 11, 736, 52);
 		gamePanel.add(questionNumLabel);
 		
 		JLabel questionLabel = new JLabel("click next question to start");
+		questionLabel.setForeground(Color.WHITE);
 		questionLabel.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
 		questionLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		questionLabel.setVerticalAlignment(SwingConstants.TOP);
@@ -156,6 +160,7 @@ public class GameFrame extends JFrame
 		gamePanel.add(nextQuestionButton);
 		
 		JPanel biancardiPanel = new JPanel();
+		biancardiPanel.setOpaque(false);
 		biancardiPanel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		biancardiPanel.setBounds(940, 5, 195, 601);
 		contentPane.add(biancardiPanel);
