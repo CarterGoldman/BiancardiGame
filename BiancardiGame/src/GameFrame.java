@@ -79,18 +79,21 @@ public class GameFrame extends JFrame
 		contestantPanel.setLayout(null);
 		
 		JLabel lblIwemaScore = new JLabel("Iwema: score");
+		lblIwemaScore.setForeground(Color.WHITE);
 		lblIwemaScore.setHorizontalAlignment(SwingConstants.CENTER);
 		lblIwemaScore.setBounds(8, 201, 179, 28);
 		lblIwemaScore.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
 		contestantPanel.add(lblIwemaScore);
 		
 		JLabel lblBegleyScore = new JLabel("Begley: score");
+		lblBegleyScore.setForeground(Color.WHITE);
 		lblBegleyScore.setHorizontalAlignment(SwingConstants.CENTER);
 		lblBegleyScore.setBounds(8, 401, 179, 28);
 		lblBegleyScore.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
 		contestantPanel.add(lblBegleyScore);
 		
 		JLabel playerScoreLabel = new JLabel("Player: score");
+		playerScoreLabel.setForeground(Color.WHITE);
 		playerScoreLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		playerScoreLabel.setBounds(8, 11, 179, 28);
 		playerScoreLabel.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
@@ -109,8 +112,7 @@ public class GameFrame extends JFrame
 		JLabel playerPicture = new JLabel("");
 		playerPicture.setIcon(new ImageIcon(GameFrame.class.getResource("/pictures/Michael-Biancardi.JPG")));
 		playerPicture.setBounds(22, 51, 150, 150);
-		contestantPanel.add(playerPicture);
-		
+		contestantPanel.add(playerPicture);		
 		
 		JPanel gamePanel = new JPanel();
 		gamePanel.setOpaque(false);
@@ -125,7 +127,7 @@ public class GameFrame extends JFrame
 		questionNumLabel.setForeground(Color.WHITE);
 		questionNumLabel.setFont(new Font("Comic Sans MS", Font.PLAIN, 25));
 		questionNumLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		questionNumLabel.setBounds(0, 11, 736, 52);
+		questionNumLabel.setBounds(20, 24, 736, 52);
 		gamePanel.add(questionNumLabel);
 		
 		JLabel questionLabel = new JLabel("click next question to start");
@@ -133,7 +135,7 @@ public class GameFrame extends JFrame
 		questionLabel.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
 		questionLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		questionLabel.setVerticalAlignment(SwingConstants.TOP);
-		questionLabel.setBounds(10, 39, 726, 111);
+		questionLabel.setBounds(20, 62, 726, 111);
 		gamePanel.add(questionLabel);
 		
 		JButton buttonA = new JButton("answer A");
@@ -209,10 +211,25 @@ public class GameFrame extends JFrame
 						buttonB.setEnabled(true);
 						buttonC.setEnabled(true);
 						buttonD.setEnabled(true);
+						nextQuestionButton.setEnabled(false);
+						
+						//Multiline button stuff to eventually display answers
+						
+						String aText = "answer A\n" + "test";
+						buttonA.setText("<html>" + aText.replaceAll("\\n", "<br>") + "</html>");
+						
+						String bText = "answer B\n" + "test";
+						buttonB.setText("<html>" + bText.replaceAll("\\n", "<br>") + "</html>");
+						
+						String cText = "answer C\n" + "test";
+						buttonC.setText("<html>" + cText.replaceAll("\\n", "<br>") + "</html>");
+						
+						String dText = "answer D\n" + "test";
+						buttonD.setText("<html>" + dText.replaceAll("\\n", "<br>") + "</html>");
 					}
 					else
 					{
-						//TODO: add end of game stuff
+						//TODO: add stuff to get to battle
 					}
 				}				
 				else if (event.getSource().equals(buttonA))
@@ -222,6 +239,7 @@ public class GameFrame extends JFrame
 					buttonB.setEnabled(false);
 					buttonC.setEnabled(false);
 					buttonD.setEnabled(false);
+					nextQuestionButton.setEnabled(true);
 				}
 				else if (event.getSource().equals(buttonB))
 				{
@@ -230,6 +248,7 @@ public class GameFrame extends JFrame
 					buttonB.setEnabled(false);
 					buttonC.setEnabled(false);
 					buttonD.setEnabled(false);
+					nextQuestionButton.setEnabled(true);
 				}
 				else if (event.getSource().equals(buttonC))
 				{
@@ -238,6 +257,7 @@ public class GameFrame extends JFrame
 					buttonB.setEnabled(false);
 					buttonC.setEnabled(false);
 					buttonD.setEnabled(false);
+					nextQuestionButton.setEnabled(true);
 				}
 				else if (event.getSource().equals(buttonD))
 				{
@@ -246,6 +266,7 @@ public class GameFrame extends JFrame
 					buttonB.setEnabled(false);
 					buttonC.setEnabled(false);
 					buttonD.setEnabled(false);
+					nextQuestionButton.setEnabled(true);
 				}
 				
 				playerScoreLabel.setText(Integer.toString(player.getPoints()));

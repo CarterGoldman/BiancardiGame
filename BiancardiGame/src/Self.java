@@ -8,5 +8,4 @@ public class Self extends Contestant
 	{
 		super(string);
 	}
-
 }

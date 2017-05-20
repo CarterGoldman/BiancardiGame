@@ -7,7 +7,7 @@ public class Sean extends Contestant
 
 	public Sean() 
 	{
-		super();
+		super("Sean");
 	}
 	
 }
