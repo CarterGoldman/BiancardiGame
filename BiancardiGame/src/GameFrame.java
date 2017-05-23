@@ -193,7 +193,7 @@ public class GameFrame extends JFrame
 		backgroundPicture.setBounds(0, 0, 1144, 623);
 		contentPane.add(backgroundPicture);
 		
-		player = new Self("Player");
+		player = new Self();
 		
 		ActionListener action = new ActionListener()
 		{
