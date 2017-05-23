@@ -215,16 +215,16 @@ public class GameFrame extends JFrame
 						
 						//Multiline button stuff to eventually display answers
 						
-						String aText = "answer A\n" + "test";
+						String aText = player.getAnswers(Question.getQuestionNumber())[0];
 						buttonA.setText("<html>" + aText.replaceAll("\\n", "<br>") + "</html>");
 						
-						String bText = "answer B\n" + "test";
+						String bText = player.getAnswers(Question.getQuestionNumber())[1];
 						buttonB.setText("<html>" + bText.replaceAll("\\n", "<br>") + "</html>");
 						
-						String cText = "answer C\n" + "test";
+						String cText = player.getAnswers(Question.getQuestionNumber())[2];
 						buttonC.setText("<html>" + cText.replaceAll("\\n", "<br>") + "</html>");
 						
-						String dText = "answer D\n" + "test";
+						String dText = player.getAnswers(Question.getQuestionNumber())[3];
 						buttonD.setText("<html>" + dText.replaceAll("\\n", "<br>") + "</html>");
 					}
 					else
@@ -240,6 +240,8 @@ public class GameFrame extends JFrame
 					buttonC.setEnabled(false);
 					buttonD.setEnabled(false);
 					nextQuestionButton.setEnabled(true);
+					
+					
 				}
 				else if (event.getSource().equals(buttonB))
 				{
