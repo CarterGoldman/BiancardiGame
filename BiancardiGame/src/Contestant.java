@@ -45,13 +45,12 @@ public class Contestant
 	
 	public String getQuestion()
 	{
+		setQuestion();
 		return question;
 	}
 	
 	public void setQuestion()
 	{
-		Question quest = new Question();		//We are now using static methods for Question.
-												//Please fix this to relfect that - Biancardi
-		question = quest.generateQuestion();
+		question = Question.generateQuestion();
 	}
 }
