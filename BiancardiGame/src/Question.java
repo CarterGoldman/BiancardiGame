@@ -1,8 +1,8 @@
 
 public class Question {
-	private static int point;
+	private static int point = 0;
 	private static String question;
-	private static int questionNumber;
+	private static int questionNumber = 1;
 
 	public Question() {
 		questionNumber = 1;
@@ -967,7 +967,7 @@ public class Question {
 	}
 
 	public static int assignNPCPoints() {
-		return (int) (Math.random() * 10 + -10);
+		return (int) (Math.random() * 20 + -10);
 	}
 
 	public static int getQuestionNumber() {

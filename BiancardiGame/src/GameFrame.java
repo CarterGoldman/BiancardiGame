@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import java.awt.image.BufferedImage;
@@ -22,6 +23,7 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.MatteBorder;
 import java.awt.Color;
+import javax.swing.border.LineBorder;
 
 public class GameFrame extends JFrame
 {
@@ -127,7 +129,7 @@ public class GameFrame extends JFrame
 		questionNumLabel.setForeground(Color.WHITE);
 		questionNumLabel.setFont(new Font("Comic Sans MS", Font.PLAIN, 25));
 		questionNumLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		questionNumLabel.setBounds(20, 24, 736, 52);
+		questionNumLabel.setBounds(0, 24, 736, 52);
 		gamePanel.add(questionNumLabel);
 		
 		JLabel questionLabel = new JLabel("click next question to start");
@@ -135,10 +137,12 @@ public class GameFrame extends JFrame
 		questionLabel.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
 		questionLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		questionLabel.setVerticalAlignment(SwingConstants.TOP);
-		questionLabel.setBounds(20, 62, 726, 111);
+		questionLabel.setBounds(10, 62, 716, 111);
 		gamePanel.add(questionLabel);
 		
 		JButton buttonA = new JButton("answer A");
+		buttonA.setForeground(Color.WHITE);
+		buttonA.setBackground(Color.BLACK);
 		buttonA.setBorder(null);
 		buttonA.setOpaque(false);
 		buttonA.setEnabled(false);
@@ -146,6 +150,8 @@ public class GameFrame extends JFrame
 		gamePanel.add(buttonA);
 		
 		JButton buttonC = new JButton("answer C");
+		buttonC.setForeground(Color.WHITE);
+		buttonC.setBackground(Color.BLACK);
 		buttonC.setBorder(null);
 		buttonC.setOpaque(false);
 		buttonC.setEnabled(false);
@@ -153,6 +159,8 @@ public class GameFrame extends JFrame
 		gamePanel.add(buttonC);
 		
 		JButton buttonB = new JButton("answer B");
+		buttonB.setForeground(Color.WHITE);
+		buttonB.setBackground(Color.BLACK);
 		buttonB.setBorder(null);
 		buttonB.setOpaque(false);
 		buttonB.setEnabled(false);
@@ -160,19 +168,23 @@ public class GameFrame extends JFrame
 		gamePanel.add(buttonB);
 		
 		JButton buttonD = new JButton("answer D");
+		buttonD.setForeground(Color.WHITE);
+		buttonD.setBackground(Color.BLACK);
 		buttonD.setBorder(null);
 		buttonD.setOpaque(false);
 		buttonD.setEnabled(false);
 		buttonD.setBounds(453, 501, 202, 83);
 		gamePanel.add(buttonD);
 		
-		JPanel picturePanel = new JPanel();
-		picturePanel.setBounds(317, 152, 100, 100);
-		gamePanel.add(picturePanel);
-		
 		JButton nextQuestionButton = new JButton("Next Question");
-		nextQuestionButton.setBounds(297, 288, 141, 41);
+		nextQuestionButton.setBounds(297, 466, 141, 41);
 		gamePanel.add(nextQuestionButton);
+		
+		JLabel pictureBox = new JLabel("");
+		pictureBox.setBorder(new LineBorder(new Color(0, 255, 255), 4, true));
+		pictureBox.setBackground(Color.BLACK);
+		pictureBox.setBounds(243, 127, 250, 250);
+		gamePanel.add(pictureBox);
 		
 		JPanel biancardiPanel = new JPanel();
 		biancardiPanel.setOpaque(false);
@@ -194,6 +206,8 @@ public class GameFrame extends JFrame
 		contentPane.add(backgroundPicture);
 		
 		player = new Self();
+		sean = new Sean("Sean");
+		todd = new Todd("Toodddd");
 		
 		ActionListener action = new ActionListener()
 		{
@@ -205,7 +219,9 @@ public class GameFrame extends JFrame
 					if (Question.getQuestionNumber() < 41)
 					{
 						questionLabel.setText(Question.generateQuestion());
-						questionNumLabel.setText(Integer.toString(Question.getQuestionNumber()));
+						questionNumLabel.setText(Integer.toString(Question.getQuestionNumber() - 1));
+						
+						pictureBox.setIcon(new ImageIcon(GameFrame.class.getResource("/pictures/memes/" + Integer.toString(Question.getQuestionNumber()-1) +".jpg")));
 						
 						buttonA.setEnabled(true);
 						buttonB.setEnabled(true);
@@ -215,16 +231,16 @@ public class GameFrame extends JFrame
 						
 						//Multiline button stuff to eventually display answers
 						
-						String aText = player.getAnswers(Question.getQuestionNumber())[0];
+						String aText = player.getAnswers(Question.getQuestionNumber() - 1)[0];
 						buttonA.setText("<html>" + aText.replaceAll("\\n", "<br>") + "</html>");
 						
-						String bText = player.getAnswers(Question.getQuestionNumber())[1];
+						String bText = player.getAnswers(Question.getQuestionNumber() - 1)[1];
 						buttonB.setText("<html>" + bText.replaceAll("\\n", "<br>") + "</html>");
 						
-						String cText = player.getAnswers(Question.getQuestionNumber())[2];
+						String cText = player.getAnswers(Question.getQuestionNumber() - 1)[2];
 						buttonC.setText("<html>" + cText.replaceAll("\\n", "<br>") + "</html>");
 						
-						String dText = player.getAnswers(Question.getQuestionNumber())[3];
+						String dText = player.getAnswers(Question.getQuestionNumber() - 1)[3];
 						buttonD.setText("<html>" + dText.replaceAll("\\n", "<br>") + "</html>");
 					}
 					else
@@ -234,44 +250,68 @@ public class GameFrame extends JFrame
 				}				
 				else if (event.getSource().equals(buttonA))
 				{
-					player.addPoints(Question.assignPoints('a'));
+					player.addPoints(Question.assignSelfPoints('a'));
 					buttonA.setEnabled(false);
 					buttonB.setEnabled(false);
 					buttonC.setEnabled(false);
 					buttonD.setEnabled(false);
 					nextQuestionButton.setEnabled(true);
 					
+					sean.addPoints(Question.assignNPCPoints());
+					todd.addPoints(Question.assignNPCPoints());
 					
+					JOptionPane.showMessageDialog(rootPane, "Sean says: " + sean.answer(Question.getQuestionNumber() - 1));
+					JOptionPane.showMessageDialog(rootPane, "Todd says: " + todd.answer(Question.getQuestionNumber() - 1));
 				}
 				else if (event.getSource().equals(buttonB))
 				{
-					player.addPoints(Question.assignPoints('b'));
+					player.addPoints(Question.assignSelfPoints('b'));
 					buttonA.setEnabled(false);
 					buttonB.setEnabled(false);
 					buttonC.setEnabled(false);
 					buttonD.setEnabled(false);
 					nextQuestionButton.setEnabled(true);
+					
+					sean.addPoints(Question.assignNPCPoints());
+					todd.addPoints(Question.assignNPCPoints());
+					
+					JOptionPane.showMessageDialog(rootPane, "Sean says: " + sean.answer(Question.getQuestionNumber() - 1));
+					JOptionPane.showMessageDialog(rootPane, "Todd says: " + todd.answer(Question.getQuestionNumber() - 1));
 				}
 				else if (event.getSource().equals(buttonC))
 				{
-					player.addPoints(Question.assignPoints('c'));
+					player.addPoints(Question.assignSelfPoints('c'));
 					buttonA.setEnabled(false);
 					buttonB.setEnabled(false);
 					buttonC.setEnabled(false);
 					buttonD.setEnabled(false);
 					nextQuestionButton.setEnabled(true);
+					
+					sean.addPoints(Question.assignNPCPoints());
+					todd.addPoints(Question.assignNPCPoints());
+					
+					JOptionPane.showMessageDialog(rootPane, "Sean says: " + sean.answer(Question.getQuestionNumber() - 1));
+					JOptionPane.showMessageDialog(rootPane, "Todd says: " + todd.answer(Question.getQuestionNumber() - 1));
 				}
 				else if (event.getSource().equals(buttonD))
 				{
-					player.addPoints(Question.assignPoints('d'));
+					player.addPoints(Question.assignSelfPoints('d'));
 					buttonA.setEnabled(false);
 					buttonB.setEnabled(false);
 					buttonC.setEnabled(false);
 					buttonD.setEnabled(false);
 					nextQuestionButton.setEnabled(true);
+					
+					sean.addPoints(Question.assignNPCPoints());
+					todd.addPoints(Question.assignNPCPoints());					
+					
+					JOptionPane.showMessageDialog(rootPane, "Sean says: " + sean.answer(Question.getQuestionNumber() - 1));
+					JOptionPane.showMessageDialog(rootPane, "Todd says: " + todd.answer(Question.getQuestionNumber() - 1));
 				}
 				
-				playerScoreLabel.setText(Integer.toString(player.getPoints()));
+				playerScoreLabel.setText("Player: " + Integer.toString(player.getPoints()));
+				lblIwemaScore.setText("Iwema: " + Integer.toString(todd.getPoints()));
+				lblBegleyScore.setText("Sean: " + Integer.toString(sean.getPoints()));
 			}
 		};
 		
