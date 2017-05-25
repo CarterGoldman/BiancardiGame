@@ -1,6 +1,6 @@
 
 public class Question {
-	private static int point = 0;
+	private static int point;
 	private static String question;
 	private static int questionNumber = 1;
 
@@ -97,7 +97,7 @@ public class Question {
 			question = "what's your nickname?";
 			break;
 		case 29:
-			question = "if you could have dinner with any three people (dead or alive), who would they be?";
+			question = "if you could have dinner with any three people, who would they be?";
 			break;
 		case 30:
 			question = "what's your favorite book?";
@@ -127,7 +127,7 @@ public class Question {
 			question = "what do you collect?";
 			break;
 		case 39:
-			question = "what's your favorite meme?";
+			question = "what's your favorite meme?";   
 			break;
 		case 40:
 			question = "what's your favorite pokemon?";
@@ -141,10 +141,30 @@ public class Question {
 	}
 
 	public static int assignSelfPoints(char answer) {
-		switch (questionNumber) // sort through question numbers and assign
+		switch (questionNumber - 1) // sort through question numbers and assign
 								// point totals based on answers
 		{
 		case 1: {
+			switch (answer) {
+			case 'a': {
+				return 2;
+
+			}
+			case 'b': {
+				return 3;
+
+			}
+			case 'c': {
+				return 4;
+
+			}
+			case 'd': {
+				return 1;
+
+			}
+			} // end switch
+		}
+		case 2: {
 			switch (answer) {
 			case 'a': {
 				return 1;
@@ -155,31 +175,11 @@ public class Question {
 
 			}
 			case 'c': {
-				return 4;
-
-			}
-			case 'd': {
 				return 3;
 
 			}
-			} // end switch
-		}
-		case 2: {
-			switch (answer) {
-			case 'a': {
-				return 5;
-
-			}
-			case 'b': {
-				return 7;
-
-			}
-			case 'c': {
-				return 6;
-
-			}
 			case 'd': {
-				return 8;
+				return 4;
 
 			}
 			} // end switch
@@ -191,7 +191,7 @@ public class Question {
 
 			}
 			case 'b': {
-				return 4;
+				return 1;
 
 			}
 			case 'c': {
@@ -199,7 +199,7 @@ public class Question {
 
 			}
 			case 'd': {
-				return 1;
+				return 4;
 
 			}
 			} // end switch
@@ -207,19 +207,19 @@ public class Question {
 		case 4: {
 			switch (answer) {
 			case 'a': {
-				return 4;
-
-			}
-			case 'b': {
 				return 1;
 
 			}
+			case 'b': {
+				return 2;
+
+			}
 			case 'c': {
-				return 3;
+				return 4;
 
 			}
 			case 'd': {
-				return 2;
+				return 3;
 
 			}
 			} // end switch
@@ -231,15 +231,15 @@ public class Question {
 
 			}
 			case 'b': {
-				return 4;
-
-			}
-			case 'c': {
 				return 3;
 
 			}
+			case 'c': {
+				return 4;
+
+			}
 			case 'd': {
-				return 5;
+				return 2;
 
 			}
 			} // end switch
@@ -247,11 +247,11 @@ public class Question {
 		case 6: {
 			switch (answer) {
 			case 'a': {
-				return 4;
+				return 3;
 
 			}
 			case 'b': {
-				return 3;
+				return 1;
 
 			}
 			case 'c': {
@@ -259,7 +259,7 @@ public class Question {
 
 			}
 			case 'd': {
-				return 1;
+				return 4;
 
 			}
 			} // end switch
@@ -267,15 +267,15 @@ public class Question {
 		case 7: {
 			switch (answer) {
 			case 'a': {
-				return 2;
+				return 3;
 
 			}
 			case 'b': {
-				return 4;
+				return 2;
 
 			}
 			case 'c': {
-				return 3;
+				return 4;
 
 			}
 			case 'd': {
@@ -287,19 +287,19 @@ public class Question {
 		case 8: {
 			switch (answer) {
 			case 'a': {
-				return 8;
+				return 3;
 
 			}
 			case 'b': {
-				return 6;
+				return 4;
 
 			}
 			case 'c': {
-				return 9;
+				return 2;
 
 			}
 			case 'd': {
-				return 7;
+				return 1;
 
 			}
 			} // end switch
@@ -307,19 +307,19 @@ public class Question {
 		case 9: {
 			switch (answer) {
 			case 'a': {
-				return 7;
+				return 3;
 
 			}
 			case 'b': {
-				return 9;
+				return 1;
 
 			}
 			case 'c': {
-				return 8;
+				return 4;
 
 			}
 			case 'd': {
-				return 6;
+				return 2;
 
 			}
 			} // end switch
@@ -327,7 +327,7 @@ public class Question {
 		case 10: {
 			switch (answer) {
 			case 'a': {
-				return 1;
+				return 3;
 
 			}
 			case 'b': {
@@ -335,7 +335,7 @@ public class Question {
 
 			}
 			case 'c': {
-				return 3;
+				return 1;
 
 			}
 			case 'd': {
@@ -347,6 +347,66 @@ public class Question {
 		case 11: {
 			switch (answer) {
 			case 'a': {
+				return 3;
+
+			}
+			case 'b': {
+				return 1;
+
+			}
+			case 'c': {
+				return 4;
+
+			}
+			case 'd': {
+				return 2;
+
+			}
+			} // end switch
+		}
+		case 12: {
+			switch (answer) {
+			case 'a': {
+				return 2;
+
+			}
+			case 'b': {
+				return 3;
+
+			}
+			case 'c': {
+				return 4;
+
+			}
+			case 'd': {
+				return 1;
+
+			}
+			} // end switch
+		}
+		case 13: {
+			switch (answer) {
+			case 'a': {
+				return 1;
+
+			}
+			case 'b': {
+				return 2;
+
+			}
+			case 'c': {
+				return 3;
+
+			}
+			case 'd': {
+				return 4;
+
+			}
+			} // end switch
+		}
+		case 14: {
+			switch (answer) {
+			case 'a': {
 				return 1;
 
 			}
@@ -359,67 +419,7 @@ public class Question {
 
 			}
 			case 'd': {
-				return 1;
-
-			}
-			} // end switch
-		}
-		case 12: {
-			switch (answer) {
-			case 'a': {
-				return 8;
-
-			}
-			case 'b': {
-				return 6;
-
-			}
-			case 'c': {
 				return 4;
-
-			}
-			case 'd': {
-				return 5;
-
-			}
-			} // end switch
-		}
-		case 13: {
-			switch (answer) {
-			case 'a': {
-				return -1;
-
-			}
-			case 'b': {
-				return -3;
-
-			}
-			case 'c': {
-				return -4;
-
-			}
-			case 'd': {
-				return -2;
-
-			}
-			} // end switch
-		}
-		case 14: {
-			switch (answer) {
-			case 'a': {
-				return 5;
-
-			}
-			case 'b': {
-				return 4;
-
-			}
-			case 'c': {
-				return 6;
-
-			}
-			case 'd': {
-				return 3;
 
 			}
 			} // end switch
@@ -427,7 +427,7 @@ public class Question {
 		case 15: {
 			switch (answer) {
 			case 'a': {
-				return 3;
+				return 2;
 
 			}
 			case 'b': {
@@ -447,19 +447,19 @@ public class Question {
 		case 16: {
 			switch (answer) {
 			case 'a': {
-				return 6;
+				return 4;
 
 			}
 			case 'b': {
-				return 6;
+				return 2;
 
 			}
 			case 'c': {
-				return 7;
+				return 3;
 
 			}
 			case 'd': {
-				return 4;
+				return 1;
 
 			}
 			} // end switch
@@ -471,7 +471,7 @@ public class Question {
 
 			}
 			case 'b': {
-				return 3;
+				return 1;
 
 			}
 			case 'c': {
@@ -479,7 +479,7 @@ public class Question {
 
 			}
 			case 'd': {
-				return 1;
+				return 3;
 
 			}
 			} // end switch
@@ -491,15 +491,15 @@ public class Question {
 
 			}
 			case 'b': {
-				return 1;
-
-			}
-			case 'c': {
 				return 4;
 
 			}
-			case 'd': {
+			case 'c': {
 				return 2;
+
+			}
+			case 'd': {
+				return 1;
 
 			}
 			} // end switch
@@ -507,15 +507,15 @@ public class Question {
 		case 19: {
 			switch (answer) {
 			case 'a': {
-				return 4;
+				return 2;
 
 			}
 			case 'b': {
-				return 5;
+				return 4;
 
 			}
 			case 'c': {
-				return 3;
+				return 1;
 
 			}
 			case 'd': {
@@ -527,7 +527,67 @@ public class Question {
 		case 20: {
 			switch (answer) {
 			case 'a': {
+				return 2;
+
+			}
+			case 'b': {
+				return 3;
+
+			}
+			case 'c': {
+				return 1;
+
+			}
+			case 'd': {
 				return 4;
+
+			}
+			} // end switch
+		}
+		case 21: {
+			switch (answer) {
+			case 'a': {
+				return 2;
+
+			}
+			case 'b': {
+				return 3;
+
+			}
+			case 'c': {
+				return 1;
+
+			}
+			case 'd': {
+				return 4;
+
+			}
+			} // end switch
+		}
+		case 22: {
+			switch (answer) {
+			case 'a': {
+				return 2;
+
+			}
+			case 'b': {
+				return 3;
+
+			}
+			case 'c': {
+				return 4;
+
+			}
+			case 'd': {
+				return 1;
+
+			}
+			} // end switch
+		}
+		case 23: {
+			switch (answer) {
+			case 'a': {
+				return 3;
 
 			}
 			case 'b': {
@@ -539,19 +599,19 @@ public class Question {
 
 			}
 			case 'd': {
-				return 3;
+				return 4;
 
 			}
 			} // end switch
 		}
-		case 21: {
+		case 24: {
 			switch (answer) {
 			case 'a': {
-				return -2;
+				return 2;
 
 			}
 			case 'b': {
-				return -3;
+				return 3;
 
 			}
 			case 'c': {
@@ -560,85 +620,25 @@ public class Question {
 			}
 			case 'd': {
 				return 1;
-
-			}
-			} // end switch
-		}
-		case 22: {
-			switch (answer) {
-			case 'a': {
-				return -6;
-
-			}
-			case 'b': {
-				return -8;
-
-			}
-			case 'c': {
-				return -10;
-
-			}
-			case 'd': {
-				return -9;
-
-			}
-			} // end switch
-		}
-		case 23: {
-			switch (answer) {
-			case 'a': {
-				return -4;
-
-			}
-			case 'b': {
-				return -9;
-
-			}
-			case 'c': {
-				return -6;
-
-			}
-			case 'd': {
-				return -4;
-
-			}
-			} // end switch
-		}
-		case 24: {
-			switch (answer) {
-			case 'a': {
-				return 6;
-
-			}
-			case 'b': {
-				return 8;
-
-			}
-			case 'c': {
-				return 8;
-
-			}
-			case 'd': {
-				return 10;
 			}
 			} // end switch
 		}
 		case 25: {
 			switch (answer) {
 			case 'a': {
-				return -3;
+				return 4;
 
 			}
 			case 'b': {
-				return 0;
+				return 1;
 
 			}
 			case 'c': {
-				return 8;
+				return 2;
 
 			}
 			case 'd': {
-				return 9;
+				return 3;
 
 			}
 			} // end switch
@@ -646,19 +646,19 @@ public class Question {
 		case 26: {
 			switch (answer) {
 			case 'a': {
-				return 5;
+				return 2;
 
 			}
 			case 'b': {
-				return -2;
+				return 3;
 
 			}
 			case 'c': {
-				return -9;
+				return 1;
 
 			}
 			case 'd': {
-				return 8;
+				return 4;
 
 			}
 			} // end switch
@@ -670,15 +670,15 @@ public class Question {
 
 			}
 			case 'b': {
-				return 9;
+				return 2;
 
 			}
 			case 'c': {
-				return 7;
+				return 1;
 
 			}
 			case 'd': {
-				return -5;
+				return 3;
 
 			}
 			} // end switch
@@ -686,19 +686,19 @@ public class Question {
 		case 28: {
 			switch (answer) {
 			case 'a': {
-				return -10;
+				return 4;
 
 			}
 			case 'b': {
-				return 9;
+				return 2;
 
 			}
 			case 'c': {
-				return 5;
+				return 1;
 
 			}
 			case 'd': {
-				return -10;
+				return 3;
 
 			}
 			} // end switch
@@ -706,31 +706,11 @@ public class Question {
 		case 29: {
 			switch (answer) {
 			case 'a': {
-				return -9;
+				return 1;
 
 			}
 			case 'b': {
-				return 10;
-
-			}
-			case 'c': {
-				return 6;
-
-			}
-			case 'd': {
-				return -6;
-
-			}
-			} // end switch
-		}
-		case 30: {
-			switch (answer) {
-			case 'a': {
-				return -4;
-
-			}
-			case 'b': {
-				return -2;
+				return 3;
 
 			}
 			case 'c': {
@@ -738,7 +718,27 @@ public class Question {
 
 			}
 			case 'd': {
-				return 7;
+				return 2;
+
+			}
+			} // end switch
+		}
+		case 30: {
+			switch (answer) {
+			case 'a': {
+				return 4;
+
+			}
+			case 'b': {
+				return 2;
+
+			}
+			case 'c': {
+				return 3;
+
+			}
+			case 'd': {
+				return 1;
 
 			}
 			} // end switch
@@ -746,19 +746,19 @@ public class Question {
 		case 31: {
 			switch (answer) {
 			case 'a': {
-				return 6;
+				return 3;
 
 			}
 			case 'b': {
-				return 10;
+				return 4;
 
 			}
 			case 'c': {
-				return 5;
+				return 2;
 
 			}
 			case 'd': {
-				return -5;
+				return 1;
 
 			}
 			} // end switch
@@ -766,39 +766,39 @@ public class Question {
 		case 32: {
 			switch (answer) {
 			case 'a': {
-				return -3;
+				return 4;
 
 			}
 			case 'b': {
-				return 6;
+				return 3;
 
 			}
 			case 'c': {
-				return -9;
+				return 1;
 
 			}
 			case 'd': {
-				return 3;
+				return 2;
 
 			}
 			} // end switch
 		}
-		case 33: {
+		case 33: {						//start here boi
 			switch (answer) {
 			case 'a': {
-				return -2;
+				return 1;
 
 			}
 			case 'b': {
-				return -10;
+				return 3;
 
 			}
 			case 'c': {
-				return 0;
+				return 2;
 
 			}
 			case 'd': {
-				return 10;
+				return 4;
 
 			}
 			} // end switch
@@ -806,19 +806,19 @@ public class Question {
 		case 34: {
 			switch (answer) {
 			case 'a': {
-				return 6;
-
-			}
-			case 'b': {
 				return 1;
 
 			}
+			case 'b': {
+				return 2;
+
+			}
 			case 'c': {
-				return 0;
+				return 3;
 
 			}
 			case 'd': {
-				return 6;
+				return 4;
 
 			}
 			} // end switch
@@ -826,27 +826,7 @@ public class Question {
 		case 35: {
 			switch (answer) {
 			case 'a': {
-				return 2;
-
-			}
-			case 'b': {
-				return 7;
-
-			}
-			case 'c': {
-				return 8;
-
-			}
-			case 'd': {
-				return -10;
-
-			}
-			} // end switch
-		}
-		case 36: {
-			switch (answer) {
-			case 'a': {
-				return 3;
+				return 4;
 
 			}
 			case 'b': {
@@ -854,11 +834,31 @@ public class Question {
 
 			}
 			case 'c': {
-				return 8;
+				return 3;
 
 			}
 			case 'd': {
-				return -9;
+				return 2;
+
+			}
+			} // end switch
+		}
+		case 36: {
+			switch (answer) {
+			case 'a': {
+				return 2;
+
+			}
+			case 'b': {
+				return 1;
+
+			}
+			case 'c': {
+				return 3;
+
+			}
+			case 'd': {
+				return 4;
 
 			}
 			} // end switch
@@ -866,19 +866,19 @@ public class Question {
 		case 37: {
 			switch (answer) {
 			case 'a': {
-				return 10;
+				return 2;
 
 			}
 			case 'b': {
-				return 0;
+				return 4;
 
 			}
 			case 'c': {
-				return 0;
+				return 2;
 
 			}
 			case 'd': {
-				return 0;
+				return 3;
 
 			}
 			} // end switch
@@ -886,19 +886,19 @@ public class Question {
 		case 38: {
 			switch (answer) {
 			case 'a': {
-				return 5;
+				return 4;
 
 			}
 			case 'b': {
-				return -5;
+				return 2;
 
 			}
 			case 'c': {
-				return 7;
+				return 2;
 
 			}
 			case 'd': {
-				return 10;
+				return 1;
 
 			}
 			} // end switch
@@ -906,19 +906,19 @@ public class Question {
 		case 39: {
 			switch (answer) {
 			case 'a': {
-				return -7;
+				return 1;
 
 			}
 			case 'b': {
-				return 6;
+				return 4;
 
 			}
 			case 'c': {
-				return 8;
+				return 2;
 
 			}
 			case 'd': {
-				return -2;
+				return 3;
 
 			}
 			} // end switch
@@ -926,19 +926,19 @@ public class Question {
 		case 40: {
 			switch (answer) {
 			case 'a': {
-				return -6;
+				return 2;
 
 			}
 			case 'b': {
-				return 8;
+				return 4;
 
 			}
 			case 'c': {
-				return 7;
+				return 3;
 
 			}
 			case 'd': {
-				return -10;
+				return 1;
 
 			}
 			} // end switch
@@ -950,15 +950,15 @@ public class Question {
 
 			}
 			case 'b': {
-				return 4;
+				return 3;
 
 			}
 			case 'c': {
-				return -8;
+				return 4;
 
 			}
 			case 'd': {
-				return -2;
+				return 1;
 			}
 			} // end switch
 		}
@@ -967,10 +967,11 @@ public class Question {
 	}
 
 	public static int assignNPCPoints() {
-		return (int) (Math.random() * 20 + -10);
+		return (int) (Math.random() * 4 + 1);
 	}
 
 	public static int getQuestionNumber() {
 		return questionNumber;
 	}
 }
+

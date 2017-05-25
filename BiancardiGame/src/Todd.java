@@ -63,7 +63,7 @@ public class Todd extends Contestant
 		break;
 		case 12:
 			answer = " ";
-			answer = " ";
+			answer = "Firmly grasp it.";
 		break;
 		case 13:
 			answer = " ";
